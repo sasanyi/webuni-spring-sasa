@@ -9,17 +9,17 @@ import java.util.Map;
 @ConfigurationProperties(prefix = "hr")
 @Component
 public class HrConfigProperties {
-    private Percent percent = new Percent();
+    private Year percent = new Year();
 
-    public Percent getPercent() {
+    public Year getPercent() {
         return percent;
     }
 
-    public void setPercent(Percent percent) {
+    public void setPercent(Year percent) {
         this.percent = percent;
     }
 
-    public static class Percent{
+    public static class Year {
         private Map<Double, Integer> years = new HashMap<>();
 
         public Map<Double, Integer> getYears() {

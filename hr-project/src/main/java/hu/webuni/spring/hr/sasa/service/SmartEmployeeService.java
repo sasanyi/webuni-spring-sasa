@@ -27,9 +27,9 @@ public class SmartEmployeeService implements EmployeeService{
 
         /*
         * Igazából több zavaró dolog is lehet ebben a megvalósításban:
-        *   Mivel az év leeht valós szám is, így a properties fájl olvasásakor megzavaró lehet hr.percent.years.2.5=2 (ez orvosolható key-value pár felcserélésével)
+        *   Mivel az év lehet valós szám is, így a properties fájl olvasásakor megzavaró lehet hr.percent.years.2.5=2 (ez orvosolható key-value pár felcserélésével)
         *   A másik egy hiba lehetőség, hogy ha az évek nem csökkenő sorrendben vannk a properties fájlban akkor nem működik megfelelően
-        *       (ez orvosolható sortal a setterben vagy tree map használatával, ha a kulcs nem az év)
+        *       (ez orvosolható sortal a setterben)
         * */
         for(Map.Entry<Double, Integer> entry : hrConfigProperties.getPercent().getYears().entrySet()) {
 
