@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hr application</title>
+</head>
+<body>
+<h1>Hr application</h1>
+<table>
+    <caption style="caption-side: bottom; font-style: italic">Összes alkalmazott</caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Teljes név</th>
+            <th>Beosztás</th>
+            <th>Fizetés</th>
+            <th>Kezdés</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="employee : ${allEmployee}">
+            <td th:text="${employee.getId()}">0</td>
+            <td th:text="${employee.getFullName()}">Alkalmazott Neve</td>
+            <td th:text="${employee.getRole()}">Beosztás</td>
+            <td th:text="${employee.getSalary()} + FT">0Ft</td>
+            <td th:text="${employee.getStartAt().getYear() + ' ' + employee.getStartAt().getMonth() + ' ' + employee.getStartAt().getDayOfMonth() + '.'}">2010.07.04</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Összes alkalmazott:</td>
+            <td th:text="${allEmployee.size()}">100</td>
+        </tr>
+    </tfoot>
+</table>
+
+<form th:action="@{/employees}" method="post" th:object="${newEmplyee}">
+
+    <label>Id: <input type="number" th:field="*{id}" /></label><br />
+    <label>Név: <input type="text" th:field="*{fullName}" /></label><br />
+    <label>Beosztás: <input type="text" th:field="*{role}" /></label><br />
+    <label>Fizetés: <input type="number" th:field="*{salary}" /></label><br />
+
+    <input type="submit" value="Alkalmazott hozzáadása" />
+
+</form>
+</body>
+</html>
