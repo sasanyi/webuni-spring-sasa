@@ -17,6 +17,7 @@ public class MemoryEmployeeRepository implements EmployeeRepository{
 
     {
         employeeMap.put(1L, new Employee(1L, "Teszt Alkalmazott", "Hr", 100000, LocalDateTime.now().minusYears(5)));
+        employeeMap.put(2L, new Employee(2L, "Teszt Alkalmazott2", "Hr2", 100000, LocalDateTime.now().minusYears(5)));
     }
 
     @Override

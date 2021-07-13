@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Hr application</title>
+</head>
+<body>
+<h1>Hr application</h1>
+<form th:action="@{/employees/{id}(id=${employee.getId()})}" method="post" th:object="${employee}">
+
+  <label>Név: <input type="text" th:field="*{fullName}" /></label><br />
+  <label>Beosztás: <input type="text" th:field="*{role}" /></label><br />
+  <label>Fizetés: <input type="number" th:field="*{salary}" /></label><br />
+  <label>Kezdési idő: <input th:field="*{startAt}" /></label><br />
+
+  <input type="submit" value="Alkalmazott mentése" />
+
+</form>
+</body>
+</html>
