@@ -4,10 +4,7 @@ import hu.webuni.spring.hr.sasa.model.Employee;
 import hu.webuni.spring.hr.sasa.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -25,6 +22,23 @@ public class HrWebController {
         return "index";
     }
 
+    @GetMapping("/employees/{id}")
+    public String editContactForm(@PathVariable long id, Map<String, Object> model){
+        Employee get = this.employeeRepository.findById(id);
+        if(get == null){
+            return "redirect:/employees";
+        }
+
+        model.put("employee", get);
+        return "edit-employee";
+    }
+
+    @PostMapping("/employees/{id}")
+    public String editContact(Employee e){
+        this.employeeRepository.save(e);
+        return "redirect:/employees";
+    }
+
     @GetMapping
     public String home(){
         return "redirect:employees";
@@ -32,9 +46,14 @@ public class HrWebController {
 
     @PostMapping({"/employees"})
     public String postEmployee(Employee employee){
-        employee.setStartAt(LocalDateTime.now());
         this.employeeRepository.save(employee);
-        return "redirect:employees";
+        return "redirect:/employees";
+    }
+
+    @GetMapping({"/employees/delete/{id}"})
+    public String postEmployee(@PathVariable("id") Long userId){
+        this.employeeRepository.deleteById(userId);
+        return "redirect:/employees";
     }
 
 
