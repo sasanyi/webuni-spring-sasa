@@ -20,7 +20,7 @@ public class MemoryCompanyRepository implements CompanyRepository{
         companyMap.put("AAAA", new Company("AAAA", "K&K Kft", "6000 Asd Kiss Geza utca 25", new ArrayList<>(){
             {
 
-                add(new EmployeeDto(new Employee(1L, "Teszt Alkalmazott", "Hr", 100000, LocalDateTime.now().minusYears(5))));
+                add(new Employee(1L, "Teszt Alkalmazott", "Hr", 100000, LocalDateTime.now().minusYears(5)));
             }
         }));
     }
