@@ -23,7 +23,7 @@ public class HrWebController {
     }
 
     @GetMapping("/employees/{id}")
-    public String editContactForm(@PathVariable long id, Map<String, Object> model){
+    public String editEmployeeForm(@PathVariable long id, Map<String, Object> model){
         Employee get = this.employeeRepository.findById(id);
         if(get == null){
             return "redirect:/employees";
@@ -34,7 +34,8 @@ public class HrWebController {
     }
 
     @PostMapping("/employees/{id}")
-    public String editContact(Employee e){
+    public String editEmployee(Employee e){
+        System.out.println("IDDDD" + e.getId());
         this.employeeRepository.save(e);
         return "redirect:/employees";
     }
@@ -51,7 +52,7 @@ public class HrWebController {
     }
 
     @GetMapping({"/employees/delete/{id}"})
-    public String postEmployee(@PathVariable("id") Long userId){
+    public String deleteEmployee(@PathVariable("id") Long userId){
         this.employeeRepository.deleteById(userId);
         return "redirect:/employees";
     }

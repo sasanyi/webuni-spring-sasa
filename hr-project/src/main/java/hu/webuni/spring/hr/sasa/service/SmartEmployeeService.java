@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Service
-public class SmartEmployeeService implements EmployeeService{
+public class SmartEmployeeService extends EmployeeServiceImpl{
 
     @Autowired
     private HrConfigProperties hrConfigProperties;

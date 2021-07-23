@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -12,9 +13,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class EmployeeDto {
     private Long id;
+    @NotNull
+    @Size(min = 1)
     private String fullName;
+    @NotNull
+    @Size(min = 1)
     private String role;
+    @Positive
     private Integer salary;
+    @Past
     private LocalDateTime startAt;
 
     public EmployeeDto(Employee employee){

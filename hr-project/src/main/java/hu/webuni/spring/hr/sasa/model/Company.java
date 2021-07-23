@@ -1,8 +1,7 @@
 package hu.webuni.spring.hr.sasa.model;
 
-import hu.webuni.spring.hr.sasa.dto.CompanyDto;
-import hu.webuni.spring.hr.sasa.dto.EmployeeDto;
-import hu.webuni.spring.hr.sasa.dto.FullCompanyDto;
+import com.fasterxml.jackson.annotation.JsonView;
+import hu.webuni.spring.hr.sasa.dto.Views;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,18 +15,6 @@ public class Company {
     private String id;
     private String name;
     private String address;
-    private List<EmployeeDto> employees;
+    private List<Employee> employees;
 
-    public Company(FullCompanyDto companyDto){
-        this.id = companyDto.getId();
-        this.name = companyDto.getName();
-        this.address = companyDto.getAddress();
-        this.employees = companyDto.getEmployees();
-    }
-
-    public Company(CompanyDto companyDto){
-        this.id = companyDto.getId();
-        this.name = companyDto.getName();
-        this.address = companyDto.getAddress();
-    }
 }

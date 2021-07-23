@@ -17,13 +17,4 @@ public class Employee {
     private Integer salary;
     private LocalDateTime startAt;
 
-    public Employee(EmployeeDto employeeDto){
-        this.id = employeeDto.getId();
-        this.fullName = employeeDto.getFullName();
-        this.role = employeeDto.getRole();
-        this.salary = employeeDto.getSalary();
-        this.startAt = employeeDto.getStartAt();
-    }
-
-
 }
